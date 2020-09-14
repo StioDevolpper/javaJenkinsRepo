@@ -1,7 +1,7 @@
 def pipelineContext = [:]
 node {
 
-   def registryProjet='registry.gitlab.com/klod/presentations-jenkins'
+   def registryProjet='registry.gitlab.com/mhadbi/javajenkinsrepos'
    def IMAGE="${registryProjet}:version-${env.BUILD_ID}"
 
     stage('Clone') {
