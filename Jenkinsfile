@@ -1,20 +1,19 @@
 node {
-    // some block
-    stage('clone') {
-    // some block
-      git 'https://github.com/StioDevolpper/javaJenkinsRepo.git'
 
+   stage('Clone') {
+    checkout scm
 }
 
-    stage('Build') {
-    // some block
-     sh "javac Main.java"
+stage('Build image') {
+    app = docker.build("xavki/nginx")
+}
+
+stage('Test image') {
+    docker.image('xavki/nginx').withRun('-p 80:80') { c ->
+    sh 'docker ps'
+    sh 'curl localhost'
+     }
 }
  
-     stage('Run') {
-    // some block
-      sh "java Main"
-
-}   
     
 }
