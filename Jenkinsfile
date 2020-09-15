@@ -1,4 +1,3 @@
-def pipelineContext = [:]
 node {
 
    def registryProjet='registry.gitlab.com/mhadbi/javajenkinsrepos'
